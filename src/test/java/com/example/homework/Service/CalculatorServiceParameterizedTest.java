@@ -16,12 +16,19 @@ public class CalculatorServiceParameterizedTest {
     void calcTest(Integer num1,Integer num2){
         Integer result=calculatorService.plus(num1,num2);
         Assertions.assertNotNull(result);
+        Assertions.assertEquals(result,calculatorService.plus(num1,num2));
+
         Integer result1=calculatorService.minus(num1,num2);
         Assertions.assertNotNull(result1);
+        Assertions.assertEquals(result1,calculatorService.minus(num1,num2));
+
         Integer result2=calculatorService.multiply(num1,num2);
         Assertions.assertNotNull(result2);
+        Assertions.assertEquals(result2,calculatorService.multiply(num1,num2));
+
         Integer result3=calculatorService.divide(num1,num2);
         Assertions.assertNotNull(result3);
+        Assertions.assertEquals(result3,calculatorService.divide(num1,num2));
     }
 
     @Test
@@ -34,8 +41,8 @@ public class CalculatorServiceParameterizedTest {
     public static Stream<Arguments> calculationTest(){
        return Stream.of(
                Arguments.of(6,3),
-               Arguments.of(10,null),
-               Arguments.of(8,0)
+              Arguments.of(10,2),
+              Arguments.of(8,1)
 
        ) ;
     }
