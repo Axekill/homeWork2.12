@@ -7,44 +7,42 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CalculatorServiceTest {
     private final CalculatorService calculatorService = new CalculatorService();
 
     @Test
     public void plusTest() {
         Integer result = calculatorService.plus(1, 8);
-        Assertions.assertEquals(result, calculatorService.plus(1, 8));
-        Integer result1 = calculatorService.plus(null, 8);
-        Assertions.assertNotNull(result);
-        Assertions.assertNotNull(result1);
+        int resultPlus = 9;
+        assertEquals(resultPlus, result);
+        assertNotNull(result);
     }
 
     @Test
     public void minusTest() {
         Integer result = calculatorService.minus(4, 2);
-        Assertions.assertEquals(result, calculatorService.minus(4, 2));
-        Integer result1 = calculatorService.minus(null, 3);
-        Assertions.assertNotNull(result);
-        Assertions.assertNotNull(result1);
+        int resultMinus = 2;
+        assertEquals(resultMinus, result);
+        assertNotNull(result);
     }
 
     @Test
     public void multiplyTest() {
         Integer result = calculatorService.multiply(2, 7);
-        Assertions.assertEquals(result, calculatorService.multiply(2, 7));
-        Integer result1 = calculatorService.multiply(5, null);
-        Assertions.assertNotNull(result);
-        Assertions.assertNotNull(result1);
+        int resultMultiply = 14;
+        assertEquals(resultMultiply, result);
+        assertNotNull(result);
     }
 
     @Test
     public void divideTest() {
         Integer result = calculatorService.divide(10, 5);
-        Assertions.assertEquals(result, calculatorService.divide(10, 5));
-        Integer result1 = calculatorService.divide(35, 5);
-        Assertions.assertNotNull(result);
-        Assertions.assertNotNull(result1);
-        Assertions.assertThrows(IllegalArgumentException.class,
+        int resultDivide = 2;
+        assertEquals(resultDivide, result);
+        assertNotNull(result);
+        assertThrows(IllegalArgumentException.class,
                 () -> calculatorService.divide(45, 0));
     }
 
